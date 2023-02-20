@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Lotto Max Analyzer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple tool for analyzing the results of the Canadian Lotto Max lottery. The project consists of two main components:
 
-## Available Scripts
+1. A data scraper that extracts the winning numbers for each Lotto Max draw from the official website.
+2. An analysis script that reads in the winning numbers data and performs some basic statistical analysis on the numbers.
 
-In the project directory, you can run:
+## Setup
 
-### `npm start`
+To use this tool, you'll need to install the following packages:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Python 3
+- BeautifulSoup
+- numpy
+- matplotlib
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You can install these packages using pip:
+pip install -r requirements.txt
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usage
 
-### `npm run build`
+To use this tool, first run the `predictor.py` script to extract the winning numbers data. This will generate the following four files:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. DrawsDataWithDates.txt
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This file contains the winning numbers for each draw date, and the data is formatted as follows:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[date] [winning numbers]
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+For example:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+23-Feb-2022 [5, 8, 10, 13, 32, 36, 46]
+26-Feb-2022 [1, 6, 10, 18, 23, 36, 48]
+01-Mar-2022 [12, 15, 17, 25, 32, 37, 49]
+...
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2. DrawsGraph.png
 
-## Learn More
+This graph shows the Lotto Max draw numbers for each draw date. The x-axis represents the draw dates and the y-axis represents the numbers. Each data point represents a draw, and the marker 'o' is used to indicate each data point. The data points are annotated with their respective winning numbers. The graph is saved as a PNG file named 'drawfig.png'.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 3. DrawSumGraph.png
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This graph shows the sum of the Lotto Max draw numbers for each draw date. The x-axis represents the draw dates and the y-axis represents the sum of the numbers. Each data point represents a draw, and the marker 'o' is used to indicate each data point. The graph is saved as a PNG file named 'sumfig.png'. 
 
-### Code Splitting
+### 4. NumberFrequencyGraph.png
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This graph shows the frequency of each number in the winning numbers data. The x-axis represents the numbers and the y-axis represents the frequency. The graph is saved as a PNG file named 'numfreq.png'.
 
-### Analyzing the Bundle Size
+All four files - DrawGraph.png, DrawSumGraph.png, NumberFrequencyGraph.png, and DrawsDataWithDates.txt - are saved in the same directory as the Python script.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## License
 
-### Making a Progressive Web App
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/greeshmasunil10/LottoMaxAnalyser/blob/main/LICENSE) file for details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Acknowledgments
 
-### Advanced Configuration
+- The Lotto Max data is sourced from the [lottomaxnumbers.com](https://www.lottomaxnumbers.com/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
